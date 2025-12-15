@@ -1,0 +1,12 @@
+# Ignore editor settings
+.vscode/
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Node / build directories (future)
+node_modules/
+dist/
+build/

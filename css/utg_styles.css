@@ -1,0 +1,1190 @@
+/* =========================================================
+   United Toughened Glass — Main Stylesheet
+   Palette: Blue + White + Gray (Clean Architectural Theme)
+   ========================================================= */
+
+/* ---------- Root Variables ---------- */
+:root {
+  --blue: #002e5f;
+  --light-blue: #0071c2;
+  --muted: #6b7280;
+  --bg: #f7fafc;
+  --card: #ffffff;
+}
+
+/* ---------- Global Styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  color: #0f1724;
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* ---------- Header & Navigation ---------- */
+header {
+  background: linear-gradient(90deg, #ffffff 0%, #f5f8fb 100%);
+  border-bottom: 3px solid #0f1724;
+
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav li a {
+  font-weight: 600;
+  color: var(--blue);
+}
+/* =========================================================
+   ✅ FIXED HERO SECTION (Full-width + Working Slide Animation)
+   ========================================================= */
+/* =========================================================
+   ✅ HERO SECTION — Full Width + Crisp Images + Perfect Gaps
+   ========================================================= */
+.hero-visual {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;
+  z-index: 1;
+}
+
+/* Background container */
+.background-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ✅ Clean continuous track */
+.slide-track {
+  display: flex;
+  width: calc(300%); /* enough for duplicated images */
+  height: 100%;
+  animation: scrollBackground 45s linear infinite;
+  gap: 12px; /* clean consistent gap */
+  will-change: transform;
+}
+
+/* ✅ Crisp images (not zoomed or blurred) */
+.slide-track img {
+  width: calc(100% / 6 - 12px); /* six images with gap adjustment */
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 0px; /* gentle corner */
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+
+/* Slight hover zoom (optional, looks premium) */
+.slide-track img:hover {
+  transform: scale(1.02);
+}
+
+/* ✅ Smooth infinite loop */
+@keyframes scrollBackground {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Overlay and content stay on top */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+}
+.hero-card {
+  max-width: 800px;        /* Bigger width */
+  padding: 4rem 4rem;      /* More height + more space */
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter : blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.292);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.28);
+}
+/* Larger heading */
+.hero-card h1 {
+  font-size: 2.9rem;       /* Bigger text */
+  line-height: 1.3;
+  margin-bottom: 1.2rem;
+}
+
+/* Tagline spacing */
+.hero-card .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+/* Buttons */
+.cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-whatsapp {
+  background-color: #119541;
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1da855;
+  transform: translateY(-2px);
+}
+
+.btn-explore {
+  border: 2px solid white;
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-explore:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ---------- Section & Typography ---------- */
+section {
+  padding: 56px 0;
+}
+
+.heading {
+  font-size: 1.6rem;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.sub {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* ---------- Grid & Product Cards ---------- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.product {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 46, 95, 0.15);
+}
+
+.product h4 {
+  margin: 5px 0 8px;
+}
+
+.product p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Products Section (Upgraded Cards) ---------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 46, 95, 0.14);
+}
+
+/* image + hover layer */
+.product-image-wrapper {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image-wrapper img {
+  transform: scale(1.2);
+}
+
+.product-hover-info {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.45),
+    transparent
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.85rem 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.product-card:hover .product-hover-info {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-hover-info p {
+  color: #f9fafb;
+  font-size: 0.9rem;
+  margin: 0 0 0.4rem;
+}
+
+.product-hover-sizes {
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+/* title & one-line tags */
+.product-card h4 {
+  margin: 4px 0 4px;
+  font-size: 1.05rem;
+  color: var(--blue);
+}
+
+.product-tags {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* dropdown with sizes/shapes */
+.product-dropdown {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.product-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+  position: relative;
+  padding-right: 1.1rem;
+}
+
+.product-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.product-dropdown summary::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.product-dropdown[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.product-dropdown ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.product-dropdown li {
+  margin-bottom: 0.18rem;
+  color: #4b5563;
+}
+
+/* Responsive layout for products */
+@media (max-width: 980px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-wrapper img {
+    height: 180px;
+  }
+}
+
+
+/* ---------- Applications Section (Upgraded) ---------- */
+.apps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.app {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  padding: 18px;
+  border-radius: 16px;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.app:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 46, 95, 0.14);
+}
+
+/* Bigger, wide images */
+.app-image-wrapper {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.app-image-wrapper img {
+  width: 100%;
+  height: 250px;         /* 👈 bigger image */
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.app:hover .app-image-wrapper img {
+  transform: scale(1.06);
+}
+
+/* Hover overlay for extra details */
+.app-hover-info {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.4),
+    transparent
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 1.1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.app:hover .app-hover-info {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.app-hover-info p {
+  color: #f9fafb;
+  font-size: 0.9rem;
+  margin: 0 0 0.6rem;
+}
+
+.app-hover-btn {
+  align-self: flex-start;
+  border: none;
+  background: #ffffff;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Title + single-line keywords */
+.app h4 {
+  margin: 4px 0 4px;
+  font-size: 1.05rem;
+  color: var(--blue);
+}
+
+.app-keywords {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Dropdown details */
+.app-dropdown {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.app-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--blue);
+  position: relative;
+  padding-right: 1.1rem;
+}
+
+.app-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+/* little arrow */
+.app-dropdown summary::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.app-dropdown[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.app-dropdown ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.app-dropdown li {
+  margin-bottom: 0.18rem;
+  color: #4b5563;
+}
+
+/* Responsive tweaks – uses what you already set but keeps layout nice */
+@media (max-width: 980px) {
+  .apps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .apps {
+    grid-template-columns: 1fr;
+  }
+
+  .app-image-wrapper img {
+    height: 180px;
+  }
+}
+
+
+/* Block spacing */
+.gallery-block {
+  margin-bottom: 32px;
+}
+
+.gallery-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+
+/* General Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.gallery-grid.small {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+
+/* Images */
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform .35s ease, box-shadow .35s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+
+/* Process Videos */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.process-grid video {
+  width: 80%;
+  height: 80%;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: transform .35s ease;
+  cursor: pointer;
+}
+
+.process-grid video:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* ============================
+   More From Our Journey Section
+============================ */
+.utg-more-journey {
+  background: #f7fbfd;
+  padding: 32px 0;
+  font-family: Inter, sans-serif;
+  color: #073048;
+}
+
+.utg-more-journey .container {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.utg-more-journey .intro {
+  margin-bottom: 28px;
+}
+
+.utg-more-journey h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.utg-more-journey .subtitle {
+  color: #2b4b57;
+  opacity: 0.9;
+}
+
+/* Grid Layout */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card Base */
+.card {
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(11, 46, 72, 0.06);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(11, 46, 72, 0.12);
+}
+
+/* Video Card */
+.video-card .thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.video-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-card .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(7, 48, 72, 0.75);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  transition: transform 0.15s ease;
+}
+
+.video-card:hover .play {
+  transform: translate(-50%, -50%) scale(1.07);
+}
+
+/* Card Body */
+.card-body {
+  padding: 1px 18px 20px;
+}
+
+.card-body h3 {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+
+.card-body p {
+  font-size: 18px;
+  color: #385b64;
+}
+
+/* Social Cards */
+.social-card {
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  gap: 1px;
+}
+
+.social-card .icon {
+  width: 80px;
+  height: 80px;
+  background: #f1f7fb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-card.instagram .icon {
+  background: linear-gradient(135deg, #f09433, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+}
+
+.social-card.facebook .icon {
+  background: #1877f2;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card .thumb {
+    height: 220px;
+  }
+}
+
+/* Reusable bottom divider for sections */
+.section-divider {
+  position: relative;
+  padding-bottom: 40px;   /* space above the line */
+  margin-bottom: 40px;    /* gap after section */
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #e1e8ed;    /* light grey line, match your design */
+}
+
+/* Remove large bottom margins on the last visible section above footer */
+section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+/* ---------- WHY CHOOSE UTG (Centered Section) ---------- */
+.why-choose-center {
+  text-align: center;
+  margin: 80px auto;
+  padding: 60px 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  max-width: 1200px;
+}
+
+.why-choose-center h2 {
+  color: var(--blue);
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.why-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.why-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.why-item h4 {
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.why-item p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.why-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-green {
+  background-color: #00a884;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-blue {
+  background-color: var(--blue);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-green:hover,
+.btn-blue:hover {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   ✅ FINAL FIX — CONTACT SECTION + FOOTER
+   ========================================================= */
+
+/* CONTACT: ensure visible gap before footer */
+.contact-sitemap {
+  background: #f8fafc;
+  padding: 50px 20px 50px;   /* keep your visual spacing */
+  margin-bottom: 200px;       /* <-- important: real gap before footer */
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1150px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-form,
+.sitemap {
+  background: #ffffff;
+  border: 1px solid #e5e8ef;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 46, 95, 0.06);
+
+  padding: 12px 20px ;   /* 👈 reduce padding to make it shorter */
+  min-height: 80px;    /* 👈 smaller height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 100%;          /* keep width same as now */
+  max-width: 800px;     /* same width */
+  margin: 0 auto;  
+   position: relative;
+  z-index: 2;     /* keeps it centered */
+}
+
+
+.contact-form {
+  border-top: 5px solid var(--blue);
+}
+
+.sitemap {
+  border-top: 5px solid var(--light-blue);
+}
+
+.utg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd8e3;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+  transition: 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--light-blue);
+  box-shadow: 0 0 0 3px rgba(0, 113, 194, 0.15);
+}
+
+.form-group textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+.btn-blue {
+  background-color: var(--blue);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-blue:hover {
+  background-color: var(--light-blue);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form,
+  .sitemap {
+    min-height: 200px;
+  }
+}
+
+/* =========================================================
+   ✅ FIXED FOOTER (Full Width + Centered Text)
+   ========================================================= */
+footer {
+  background: var(--blue);
+  color: white;
+  padding: 50px 0 30px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.footer-logo {
+  width: 90px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-bottom-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
+  padding: 0 24px;          /* same horizontal gutter as .footer-grid */
+  box-sizing: border-box;
+}
+
+.footer-bottom {
+ position: relative;
+  width: auto;               /* do NOT stretch to full width */
+  max-width: 1180px;         /* constraint so the lines sit centered */
+  margin: 0 auto;            /* centers inside the wrapper */
+  padding-top: 18px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d6e7ff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* safety: if the wrapper is inside the grid, make it span full width */
+.footer-grid > .footer-bottom-wrapper {
+  grid-column: 1 / -1;
+}
+
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.footer-contact a {
+  color: #d6e7ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #00bcd4;
+  text-shadow: 0 0 6px rgba(0, 188, 212, 0.6);
+}
+
+.footer-contact i {
+  color: #00bcd4;
+  font-size: 1.1rem;
+  width: 22px;
+  min-width: 22px;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-contact li:hover i {
+  transform: scale(1.2);
+  color: #29d2ff;
+}
+
+/* ✅ Mobile Footer Adjustments */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contact li {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    padding-top: 15px;
+  }
+}
+
+/* Ensure no scrollbars from full-width sections */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+/* ---------- Responsive Design ---------- */
+@media (max-width: 980px) {
+  .hero-section {
+    height: 80vh;
+    padding: 40px 0;
+  }
+
+  .hero-card h1 {
+    font-size: 2rem;
+  }
+
+  .hero-card p {
+    font-size: 1rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .apps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid-3,
+  .apps {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose-center {
+    padding: 40px 16px;
+  }
+
+  .hero-card {
+    padding: 32px 20px;
+  }
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
