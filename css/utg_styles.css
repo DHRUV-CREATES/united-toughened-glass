@@ -30,6 +30,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   width: 100%;
+  font-size: 16px;
   /* NO overflow-x: hidden on body — it breaks footer width */
 }
 
@@ -249,7 +250,7 @@ section {
 }
 
 .heading {
-  font-size: 1.8rem;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
   color: var(--blue);
   margin-bottom: 10px;
   font-weight: 700;
@@ -926,11 +927,11 @@ footer li {
   }
 
   .hero-card h1 {
-    font-size: 1.5rem;
+    font-size: clamp(2.2rem, 3vw, 3rem);
   }
 
   .hero-card .tagline {
-    font-size: 0.95rem;
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
   }
 
   .cta-row {
