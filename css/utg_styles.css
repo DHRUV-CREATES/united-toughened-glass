@@ -46,8 +46,8 @@ img, video {
 /* ---------- Container ---------- */
 .container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0 ;
   padding: 0 24px;
   box-sizing: border-box;
 }
@@ -67,8 +67,9 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 ;
 }
 
 .logo {
@@ -750,8 +751,8 @@ footer {
 
 .footer-grid {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0 ;
   padding: 0 24px;
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
